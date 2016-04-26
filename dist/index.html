@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	
+	<title>eShop</title>
+
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<script src="./js/angular.js"></script>
+	<script src="./js/angular-ui-router.min.js"></script>
+	<script src="./js/all.js"></script>
+</head>
+<body ng-app="app">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<main-navigation></main-navigation>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<ui-view></ui-view>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3" ng-controller="ProductsController">
+				{{ products }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<main-footer></main-footer>
+			</div>
+		</div>
+	</div>
+	<script src="./js/tl.min.js"></script>
+</body>
+</html>

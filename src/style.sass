@@ -1,0 +1,53 @@
+$gray-dark:                 #373a3c
+$gray:                      #55595c
+$gray-light:                #818a91
+$gray-lighter:              #eceeef
+$gray-lightest:             #f7f7f9
+
+$brand-primary:             #0275d8
+$brand-success:             #5cb85c
+$brand-info:                #5bc0de
+$brand-warning:             #f0ad4e
+$brand-danger:              #d9534f
+
+h1
+	color: $brand-info
+
+.col-xs-6
+	background-color: $gray-lightest
+
+nav
+	padding: 20px 10px
+	text-align: center
+	
+	& ul
+		list-style-type: none
+		margin: 0
+		padding: 0
+	
+	& li
+		display: inline
+		border: 1px solid $gray-light
+		padding: 5px 10px
+		border-radius: 3px
+	
+	a
+		color: $gray
+
+footer
+	padding: 20px 10px
+	text-align: center
+	
+	& ul
+		list-style-type: none
+		margin: 0
+		padding: 0
+	
+	& li
+		display: inline
+	
+	& li + li:before
+		content: " | "
+	
+	&, a
+		color: $gray

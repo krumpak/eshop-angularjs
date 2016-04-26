@@ -1,0 +1,15 @@
+{
+  "name": "eShop",
+  "version": "0.1.0",
+  "author": "Gorazd krumpak",
+  "description": "eShop (AngularJS)",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-flatten": "0.0.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}

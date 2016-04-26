@@ -1,0 +1,23 @@
+{
+  "name": "eShop",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Gorazd krumpak"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "v4.0.0-alpha.2",
+    "jquery": "^2.2.3",
+    "angular-ui-router": "^0.2.18"
+  }
+}
