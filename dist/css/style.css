@@ -18,6 +18,10 @@ nav {
     border-radius: 3px; }
   nav a {
     color: #55595c; }
+  nav .active {
+    background-color: #55595c; }
+    nav .active a {
+      color: white; }
 
 footer {
   padding: 20px 10px;
@@ -31,4 +35,6 @@ footer {
   footer li + li:before {
     content: " | "; }
   footer, footer a {
-    color: #55595c; }
+    color: #818a91; }
+  footer .active a {
+    color: #373a3c; }

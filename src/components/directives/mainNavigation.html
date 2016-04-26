@@ -1,10 +1,10 @@
 <nav>
 	<ul>
-		<li><a ui-sref="home">Home</a></li>
-		<li><a ui-sref="products">Products</a></li>
-		<li><a ui-sref="categories">Categories</a></li>
-		<li><a ui-sref="cart">Cart</a></li>
-		<li><a ui-sref="purchase">Purchase</a></li>
-		<li><a ui-sref="about-us">About Us</a></li>
+		<li ng-class="{ 'active': isActiveNav('/') }"><a ui-sref="home">Home</a></li>
+		<li ng-class="{ 'active': isActiveNav('/products') }"><a ui-sref="products">Products</a></li>
+		<li ng-class="{ 'active': isActiveNav('/categories') }"><a ui-sref="categories">Categories</a></li>
+		<li ng-class="{ 'active': isActiveNav('/cart') }"><a ui-sref="cart">Cart</a></li>
+		<li ng-class="{ 'active': isActiveNav('/purchase') }"><a ui-sref="purchase">Purchase</a></li>
+		<li ng-class="{ 'active': isActiveNav('/about-us') }"><a ui-sref="about-us">About Us</a></li>
 	</ul>
 </nav>

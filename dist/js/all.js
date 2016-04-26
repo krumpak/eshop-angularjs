@@ -1,69 +1,80 @@
 var app = angular.module('app', ['ui.router']);
 
+app.controller('isActiveNavController', function($scope, $location){
+
+	$scope.isActiveNav = function (viewLocation) { 
+		return viewLocation === $location.path();
+	};
+
+});
 app.config(function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise('/');
 
   $stateProvider.state('home', 
   {
-      url: '/',
-      templateUrl: './templates/home.html'
+    url: '/',
+    templateUrl: './templates/home.html'
   });
 
   $stateProvider.state('products', 
   {
-      url: '/products',
-      templateUrl: './templates/products.html'
+    url: '/products',
+    templateUrl: './templates/products.html'
   });
 
   $stateProvider.state('categories', 
   {
-      url: '/categories',
-      templateUrl: './templates/categories.html'
+    url: '/categories',
+    templateUrl: './templates/categories.html'
   });
 
   $stateProvider.state('cart', 
   {
-      url: '/cart',
-      templateUrl: './templates/cart.html'
+    url: '/cart',
+    templateUrl: './templates/cart.html'
   });
 
   $stateProvider.state('purchase', 
   {
-      url: '/purchase',
-      templateUrl: './templates/purchase.html'
+    url: '/purchase',
+    templateUrl: './templates/purchase.html'
   });
 
   $stateProvider.state('about-us', 
   {
-      url: '/about-us',
-      templateUrl: './templates/about-us.html'
+    url: '/about-us',
+    templateUrl: './templates/about-us.html'
   });
 
   $stateProvider.state('privacy-policy', 
   {
-      url: '/privacy-policy',
-      templateUrl: './templates/privacy-policy.html'
+    url: '/privacy-policy',
+    templateUrl: './templates/privacy-policy.html'
   });
 
   $stateProvider.state('cookies', 
   {
-      url: '/cookies',
-      templateUrl: './templates/cookies.html'
+    url: '/cookies',
+    templateUrl: './templates/cookies.html'
   });
 
 });
 
 app.directive('mainFooter', function(){
-    return {
-        templateUrl: './templates/mainFooter.html'
-    }
+	return {
+		restrict: 'E',
+		templateUrl: './templates/mainFooter.html',
+		controller: 'isActiveNavController'
+	}
 });
 
 app.directive('mainNavigation', function(){
-    return {
-        templateUrl: './templates/mainNavigation.html'
-    }
+	return {
+		restrict: 'E',
+		templateUrl: './templates/mainNavigation.html',
+		controller: 'isActiveNavController'
+	}
 });
 
 app.controller('ProductsController', function($scope){

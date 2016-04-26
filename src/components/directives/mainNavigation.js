@@ -1,5 +1,7 @@
 app.directive('mainNavigation', function(){
-    return {
-        templateUrl: './templates/mainNavigation.html'
-    }
+	return {
+		restrict: 'E',
+		templateUrl: './templates/mainNavigation.html',
+		controller: 'isActiveNavController'
+	}
 });
