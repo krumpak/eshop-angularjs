@@ -4,6 +4,7 @@ var notify = require('gulp-notify');
 var webserver = require('gulp-webserver');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Task for moving index.html 
 gulp.task('move-index', function(){
@@ -60,6 +61,10 @@ gulp.task('scripts', function(){
 gulp.task('sass', function () {
   gulp.src('./src/style.sass')
   .pipe(sass().on('error', sass.logError))
+  .pipe(autoprefixer({
+		browsers: ['last 2 versions'],
+		cascade: false
+	}))
   .pipe(gulp.dest('./dist/css'))
 	.pipe(notify('Compiled CSS'));
 });
