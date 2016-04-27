@@ -1,9 +1,10 @@
 var gulp = require('gulp');
 var flatten = require('gulp-flatten');
 var notify = require('gulp-notify');
-var webserver = require('gulp-webserver');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var rename = require("gulp-rename");
+var webserver = require('gulp-webserver');
 var autoprefixer = require('gulp-autoprefixer');
 
 // Task for moving index.html 
@@ -34,7 +35,7 @@ gulp.task('move', function(){
 gulp.task('vendor', function(){
 	//	Set the source of files
 	var ng_files = [
-    './bower_components/angular/angular.js',
+    './bower_components/angular/angular.min.js',
     './bower_components/angular-ui-router/release/angular-ui-router.min.js',
     './src/tl.min.js'
   ];
@@ -73,8 +74,16 @@ gulp.task('sass', function () {
 gulp.task('bootstrap', function () {
   gulp.src('./src/bootstrap.scss')
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+  .pipe(autoprefixer({
+		browsers: ['last 2 versions'],
+		cascade: false
+	}))
+	.pipe(rename(function (path) {
+		path.basename += ".min";
+		path.extname = ".css"
+	}))
   .pipe(gulp.dest('./dist/css'))
-	.pipe(notify('Compiled Bootstrap'));
+	.pipe(notify('Compiled Minified Bootstrap'));
 });
 
 //	Task for running a webserver
@@ -100,8 +109,7 @@ gulp.task('default', ['serve'], function(){
 	//	Create a watcher that will run the scripts task
 	//	anytime a .js file changes
 	gulp.watch(['./src/**/*.js'], ['scripts']);
-  gulp.watch(['./src/index.html'], ['move-index']);
-  gulp.watch(['./src/components/**/*.html'], ['move']);
+  gulp.watch(['./src/**/*.html'], ['move-index', 'move']);
   gulp.watch(['./src/**/*.sass'], ['sass']);
   gulp.watch(['./src/**/*.scss'], ['bootstrap']);
 });
