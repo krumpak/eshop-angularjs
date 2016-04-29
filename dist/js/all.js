@@ -2,11 +2,11 @@ var app = angular.module('app', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-$urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider.state('home', 
   {
-    url: '/',
+    url: '/home',
     templateUrl: './templates/home.html'
   });
 
@@ -73,11 +73,7 @@ app.directive('mainNavigation', function(){
 app.controller('navigationController', function($scope, $state){
 
 	$scope.isStateActive = function (name) { 
-		if( name == '/' ){
-			return true;
-		}else{
-			return $state.is(name);
-		}
+		return $state.is(name);
 	};
 
 });
