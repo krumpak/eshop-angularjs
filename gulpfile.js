@@ -31,6 +31,18 @@ gulp.task('move', function(){
 
 });
 
+// Task for moving images to the dist folder
+gulp.task('move-imgs', function(){
+
+	// Set the source. You can exclude files with !
+	gulp.src(['./src/**/*.ico', './src/**/*.jpg', './src/**/*.jpeg', './src/**/*.png', './src/**/*.gif', './src/**/*.svg'])
+	// Remove any relative folders, subfolders
+	.pipe(flatten())
+	.pipe(gulp.dest('./dist/img'))
+	.pipe(notify('Moved images'));
+
+});
+
 // Move vendor files
 gulp.task('vendor', function(){
 	//	Set the source of files
@@ -104,7 +116,7 @@ gulp.task('serve', function(){
 gulp.task('default', ['serve'], function(){
 
 	//	Run tasks on start
-	gulp.start(['move-index', 'move', 'vendor', 'scripts', 'sass', 'bootstrap']);
+	gulp.start(['move-index', 'move', 'vendor', 'scripts', 'sass', 'bootstrap', 'move-imgs']);
 
 	//	Create a watcher that will run the scripts task
 	//	anytime a .js file changes

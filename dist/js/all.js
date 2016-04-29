@@ -1,12 +1,5 @@
 var app = angular.module('app', ['ui.router']);
 
-app.controller('isActiveNavController', function($scope, $location){
-
-	$scope.isActiveNav = function (viewLocation) { 
-		return viewLocation === $location.path();
-	};
-
-});
 app.config(function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise('/');
@@ -65,7 +58,7 @@ app.directive('mainFooter', function(){
 	return {
 		restrict: 'E',
 		templateUrl: './templates/mainFooter.html',
-		controller: 'isActiveNavController'
+		controller: 'navigationController'
 	}
 });
 
@@ -73,8 +66,20 @@ app.directive('mainNavigation', function(){
 	return {
 		restrict: 'E',
 		templateUrl: './templates/mainNavigation.html',
-		controller: 'isActiveNavController'
+		controller: 'navigationController'
 	}
+});
+
+app.controller('navigationController', function($scope, $state){
+
+	$scope.isStateActive = function (name) { 
+		if( name == '/' ){
+			return true;
+		}else{
+			return $state.is(name);
+		}
+	};
+
 });
 
 app.controller('ProductsController', function($scope){

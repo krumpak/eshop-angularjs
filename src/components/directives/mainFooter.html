@@ -1,7 +1,7 @@
 <footer>
 	<ul>
 		<li>&copy; 2016</li>
-		<li ng-class="{ 'active': isActiveNav('/privacy-policy') }"><a ui-sref="privacy-policy">Privacy Policy</a></li>
-		<li ng-class="{ 'active': isActiveNav('/cookies') }"><a ui-sref="cookies">Cookies</a></li>
+		<li ng-class="{ 'active': isStateActive('privacy-policy') }"><a ui-sref="privacy-policy">Privacy Policy</a></li>
+		<li ng-class="{ 'active': isStateActive('cookies') }"><a ui-sref="cookies">Cookies</a></li>
 	</ul>
 </footer>
